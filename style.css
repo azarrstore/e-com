@@ -1,20 +1,24 @@
 :root {
   --bg: #ffffff;
-  --text: #111111;
-  --primary: #0a3d62;
-  --secondary: #2980b9;
+  --text: #111;
+  --primary: #ff6b00;
+  --secondary: #ffc300;
+  --card-bg: #f9f9f9;
+  --btn-bg: #ff6b00;
 }
 
 body.dark {
-  --bg: #111111;
-  --text: #ffffff;
-  --primary: #74b9ff;
-  --secondary: #0984e3;
+  --bg: #121212;
+  --text: #f1f1f1;
+  --primary: #ffa502;
+  --secondary: #ffd32a;
+  --card-bg: #1e1e1e;
+  --btn-bg: #ffa502;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background-color: var(--bg);
   color: var(--text);
   transition: background 0.3s, color 0.3s;
@@ -23,9 +27,9 @@ body {
 header {
   background: var(--primary);
   color: white;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
   align-items: center;
 }
 
@@ -39,23 +43,73 @@ header {
   margin-right: 10px;
 }
 
-.hero, .about, .products, .contact {
-  padding: 2rem;
+#darkModeToggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+}
+
+.hero h2 span {
+  color: #fff700;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--btn-bg);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #e65c00;
+}
+
+.about, .products, .contact {
+  padding: 3rem 2rem;
   text-align: center;
 }
 
-.product-list {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+.product-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 2rem;
 }
 
-.product {
-  background: var(--secondary);
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  color: white;
+.card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
 }
 
 form input, form textarea {
@@ -63,15 +117,18 @@ form input, form textarea {
   margin: 0.5rem 0;
   padding: 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text);
 }
 
 form button {
+  margin-top: 1rem;
   padding: 0.75rem 2rem;
-  background: var(--primary);
+  background: var(--btn-bg);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -80,4 +137,5 @@ footer {
   color: white;
   text-align: center;
   padding: 1rem;
+  font-size: 0.9rem;
 }
